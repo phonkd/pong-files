@@ -1,4 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/sh
+termux-wake-lock
 /data/data/com.termux/files/usr/bin/sv up sshd
 /data/data/com.termux/files/usr/bin/sv up dockerd
 /data/data/com.termux/files/home/pong-files/network-routes.sh
