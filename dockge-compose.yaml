@@ -20,4 +20,4 @@ services:
     environment:
       # Tell Dockge where is your stacks directory
       - DOCKGE_STACKS_DIR=/opt/stacks
-  network_mode: "host"
+    network_mode: "host"
