@@ -118,6 +118,11 @@ The repository includes network routing scripts for Termux/Android environments:
 - Use environment variables or Docker secrets for sensitive data
 - Regularly rotate GitHub access tokens
 - Use the minimum required token scopes
+- **Docker Socket Access**: doco-cd requires access to `/var/run/docker.sock` to manage containers. This grants significant privileges, so:
+  - Only run doco-cd in trusted environments
+  - Ensure proper host-level access controls are in place
+  - Consider network isolation for the Docker host
+  - This is a standard requirement for container management tools like Portainer, Dockge, and doco-cd
 
 ## Troubleshooting
 
