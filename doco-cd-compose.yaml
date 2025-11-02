@@ -17,7 +17,7 @@ services:
           reference: main
           interval: 180  # Poll every 3 minutes
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /data/docker/run/docker.sock:/var/run/docker.sock
       - ./data-doco-cd:/data
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/v1/health"]

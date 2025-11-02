@@ -1,12 +1,13 @@
-#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+
 termux-wake-lock
 sshd
-#/data/data/com.termux/files/usr/bin/sv up sshd
+. "$PREFIX/etc/profile" # loads PATH, LD_LIBRARY_PATH, LANG, SVDIR, etc.
 export SVDIR="$PREFIX/var/service"
 
 termux-services start   # ensure runsvdir is running; no effect if already started
 sleep 10                # wait for storage/network if dockerd needs them
-
+sudo /data/data/com.termux/files/home/scripts/dockerroute.sh
 sv up dockerd
-sudo /data/data/com.termux/files/home/pong-files/network-routes.sh
+sv up librespot
 # cp /data/data/com.termux/files/home/pong-files/boot-startup-scripts.sh /data/data/com.termux/files/home/.termux/boot/start-stuff.sh
