@@ -6,7 +6,7 @@ teleport:
   log:
     output: stderr
     severity: INFO
-  auth_token: ${AUTH_TOKEN}
+  auth_token: /etc/teleport/joiintoken
   proxy_server: "https://teleport.phonkd.net:443"
 
 auth_service:
@@ -28,4 +28,7 @@ app_service:
   apps:
     - name: proxmox
       uri: https://192.168.1.46:8006
+      insecure_skip_verify: true
+    - name: ipmi
+      uri: http://192.168.1.150
       insecure_skip_verify: true

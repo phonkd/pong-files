@@ -6,6 +6,6 @@ services:
     container_name: teleport-node
     restart: unless-stopped
     network_mode: host
-
     volumes:
       - ./teleport.yaml:/etc/teleport/teleport.yaml:ro
+      - ./.env:/etc/teleport/joiintoken
