@@ -4,7 +4,7 @@ global:
 
 scrape_configs:
   - job_name: mystrom
-    scrape_interval: 30s
+    scrape_interval: 3s
     metrics_path: /device
     honor_labels: true
     static_configs:
@@ -14,4 +14,6 @@ scrape_configs:
       - source_labels: [__address__]
         target_label: __param_target
       - target_label: __address__
-        replacement: 127.0.0.1:9452
+        replacement: mystrom-exporter:9452
+remote_write:
+  - url: "http://192.168.1.121:9090/api/v1/write"

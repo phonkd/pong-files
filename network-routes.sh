@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/bin/sh
 # This script enables the use of containers without network_mode host...
 # find the route kernel would use to reach the Internet
 LINE="$(ip -o route get 1.1.1.1 2>/dev/null || ip -o route get 8.8.8.8 2>/dev/null)"

@@ -1,5 +1,0 @@
-name: prometheus-mystrom
-reference: refs/heads/main
-working_dir: stacks/prometheus-and-mystrom-exporter
-compose_files:
-  - compose.yaml
