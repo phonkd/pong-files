@@ -1,0 +1,31 @@
+version: v3
+
+teleport:
+  nodename: "pong"
+  data_dir: /var/lib/teleport
+  log:
+    output: stderr
+    severity: INFO
+  auth_token: ${AUTH_TOKEN}
+  proxy_server: "https://teleport.phonkd.net:443"
+
+auth_service:
+  enabled: false
+
+proxy_service:
+  enabled: false
+
+ssh_service:
+  enabled: true
+  labels:
+    service: docker-ssh-node
+  commands:
+    - name: uname
+      command: ["/bin/uname", "-a"]
+      period: 1m
+app_service:
+  enabled: yes
+  apps:
+    - name: proxmox
+      uri: https://192.168.1.46:8006
+      insecure_skip_verify: true

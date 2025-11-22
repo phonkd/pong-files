@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  teleport-node:
+    image: public.ecr.aws/gravitational/teleport-distroless:18.0.0
+    container_name: teleport-node
+    restart: unless-stopped
+    network_mode: host
+
+    volumes:
+      - ./teleport.yaml:/etc/teleport/teleport.yaml:ro
