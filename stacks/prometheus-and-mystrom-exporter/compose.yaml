@@ -5,10 +5,11 @@ services:
     restart: unless-stopped
     ports:
       - "9452:9452"
-    networks:
-      - prometheus-net
+    # networks:
+    #   - prometheus-net
 
   prometheus:
+    network_mode: host
     image: prom/prometheus:latest
     container_name: prometheus
     restart: unless-stopped
@@ -29,12 +30,12 @@ services:
       - '--web.listen-address=:10123'
     depends_on:
       - mystrom-exporter
-    networks:
-      - prometheus-net
+    # networks:
+    #   - prometheus-net
 
 volumes:
   prometheus-data:
 
-networks:
-  prometheus-net:
-    driver: bridge
+# networks:
+#   prometheus-net:
+#     driver: bridge
