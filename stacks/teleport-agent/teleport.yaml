@@ -34,3 +34,7 @@ app_service:
       uri: http://127.0.0.1:10123
       labels:
         dev: "pong"
+    - name: pong-kuma
+      uri: http://127.0.0.1:3001
+      labels:
+        dev: "pong"

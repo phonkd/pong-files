@@ -1,0 +1,11 @@
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:2.0.2
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./data:/app/data
+      - /data/docker/run/docker.sock:/docker.sock:ro
+    ports:
+      # <Host Port>:<Container Port>
+      - "3001:3001"
